@@ -8,8 +8,7 @@ public class PMain extends PApplet {
         PApplet.main(PMain.class, args);
     }
 
-    XYscope xy;         // create XYscope instance
-
+    XYscope xy;
     float t = 0;
 
     String txt = "Vitalise";
