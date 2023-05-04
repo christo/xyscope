@@ -1,0 +1,34 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClass.set('processing.PMain')
+}
+
+repositories {
+    mavenCentral()
+
+    // for minim
+    maven { url 'https://clojars.org/repo/' }
+    // for processing ("put at end")
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation group: 'com.github.micycle1', name: 'processing-core-4', version: '4.0.3'
+    implementation group: 'ddf.minim', name: 'ddf.minim', version: '2.2.0'
+
+
+    // processing runtime deps (for P3D although still barfing)
+    runtimeOnly group: 'org.jogamp.jogl', name: 'jogl-all-main', version: '2.3.2'
+    runtimeOnly group: 'org.jogamp.jogl', name: 'jogl-all', version: '2.3.2'
+    runtimeOnly group: 'org.jogamp.gluegen', name: 'gluegen-rt-main', version: '2.3.2'
+
+    // for processing video
+    implementation 'net.java.dev.jna:jna:5.6.0'
+    implementation 'net.java.dev.jna:jna-platform:5.6.0'
+    implementation 'org.freedesktop.gstreamer:gst1-java-core:1.4.0'
+
+
+}
