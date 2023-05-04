@@ -25,6 +25,7 @@ import ddf.minim.ugens.Waveform;
  * @author Mark Godfrey &lt;mark.godfrey@gatech.edu&gt;
  */
 
+@SuppressWarnings({"unused", "GrazieInspection"})
 public class XYWavetable implements Waveform
 {
 
@@ -232,10 +233,9 @@ public class XYWavetable implements Waveform
 	public void normalize()
 	{
 		float max = Float.MIN_VALUE;
-		for ( int i = 0; i < waveform.length; i++ )
-		{
-			if ( Math.abs( waveform[i] ) > max )
-				max = Math.abs( waveform[i] );
+		for (float v : waveform) {
+			if (Math.abs(v) > max)
+				max = Math.abs(v);
 		}
 		scale( 1 / max );
 	}
@@ -328,7 +328,7 @@ public class XYWavetable implements Waveform
 	{
 		if ( windowLength < 1 )
 			return;
-		float[] temp = (float[])waveform.clone();
+		float[] temp = waveform.clone();
 		for ( int i = windowLength; i < waveform.length; i++ )
 		{
 			float avg = 0;
