@@ -10,3 +10,5 @@ tmp
 _sandbox
 examples_removed
 .settings
+/.gradle/
+/build/
